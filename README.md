@@ -6,7 +6,7 @@ A low-resource, serial RSA engine for Intel FPGA Cyclone V. Mainly suitable for 
 
 Inspired by: https://ieeexplore.ieee.org/document/1253671 with a few improvements. Unlike the paper, there is no need to precompute the R^2modN whenever a new key is used. A slightly more optimal add/sub structure is also used, which does not require computing the full 2s complement representation of the second term. 
 
-Top level module of the IP block is RSA.sv. This is instantiated inside RSA_tb.sv for verification and RSA_wrapper.sv for running on a Cyclone V. Communication is caried out via a register interface. Valid must be asserted for any request to occur. 
+Top level module of the engine is RSA.sv. This is instantiated inside RSA_tb.sv for verification and RSA_wrapper.sv for running on a Cyclone V. Communication is caried out via a register interface. Valid must be asserted for any request to occur. 
 
 RSA.sv signals
 | Signal    | I/O    | Width | Function                                                                                                        |
@@ -45,7 +45,7 @@ Load_x – when set, allows X (plaintext) to be inserted/overwritten.
 
 Read_u – when set, begins read back of operation result. 
 
-Start – when set, begins RSA operation. Automatically reset by module, is not a status indicator. When operation completes ready is asserted.
+Start – when set, begins RSA operation. This field is automatically reset and is not a status indicator. When operation completes ready is asserted.
 
 Procedure for passing X, E, N:
 1. Write to ctrl_reg setting load_n, load_e or load_x bits. Must not be set simultaneously.
