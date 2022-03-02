@@ -62,4 +62,4 @@ Procedure for reading result:
 6. Repeat, leaving one cycle between reads.
 
 Simulation:
-Use Modelsim Intel FPGA edition or Questa Intel FPGA edition. Modify top two lines of /Sim/modelsim/sim.do depending on folder location.
+Use Modelsim Intel FPGA edition or Questa Intel FPGA edition. Modify top two lines of /Sim/modelsim/sim.do depending on folder location. Simulating with intended key size of 1024 bits, will be extremely slow on PCs. Use a server or decrease key size.
