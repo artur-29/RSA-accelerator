@@ -34,20 +34,26 @@ data_reg 0x1
 | R/W   |                   R/W                 |
 | Field |                data\_reg              |
 
+Bit fields:
 Ready – when asserted, indicates engine is ready to accept new data or start the next operation. If an operation had previously been started, indicates said operation is complete and result is ready.
+
 Load_n – when set, allows N (modulus) to be inserted/overwritten. 
+
 Load_e – when set, allows E (exponent) to be inserted/overwritten. 
+
 Load_x – when set, allows X (plaintext) to be inserted/overwritten. 
+
 Read_u – when set, begins read back of operation result. 
+
 Start – when set, begins RSA operation. Automatically reset by module, is not a status indicator. When operation completes ready is asserted.
 
-Procedure for passing X, E, N
+Procedure for passing X, E, N:
 1. Write to ctrl_reg setting load_n, load_e or load_x bits. Must not be set simultaneously.
 2. On the next cycle or any cycle after, write first (least significant) word (8 bits) of X, E or N.
 3. Further words can be written on any successive cycle.
 
 
-Procedure for reading result
+Procedure for reading result:
 1. Write to ctrl_reg setting read_u bits. load_n, load_e or load_x must not be set simultaneously.
 2. Wait 4 cycles.
 3. Read data_reg register. Contains first (least significant) word (8 bits) of result.
@@ -55,5 +61,5 @@ Procedure for reading result
 5. Read data_reg for next word.
 6. Repeat, leaving one cycle between reads.
 
-Simulation
+Simulation:
 Use Modelsim Intel FPGA edition or Questa Intel FPGA edition. Modify top two lines of /Sim/modelsim/sim.do depending on folder location.
