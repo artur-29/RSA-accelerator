@@ -1,6 +1,5 @@
 # RSA-accelerator
-Intel FPGA RSA crypto-engine
-RSA encryption engine
+RSA crypto-engine targeting Intel FPGAs
 
 A low-resource, serial RSA engine for Intel FPGA Cyclone V. Mainly suitable for public key operations, implements RSAEP from PKCS #1. Private key operations also work when the key is defined as a pair. This is suboptimal, however, since this engine does not use CRT.
 
@@ -11,11 +10,11 @@ Top level module of the engine is RSA.sv. This is instantiated inside RSA_tb.sv 
 RSA.sv signals
 | Signal    | I/O    | Width | Function                                                                                                        |
 | --------- | ------ | ----- | --------------------------------------------------------------------------------------------------------------- |
-| clk       | input  | 1     | clock                                                                                                           |
-| reset\_n  | input  | 1     | synchronous negative edge reset                                                                                 |
-| data\_in  | input  | 8     | data input to pass to internal register                                                                         |
-| data\_out | output | 8     | outputs data inside selected internal register                                                                  |
-| addr      | input  | 1     | specifies internal register:  0=control\_reg, 1= data\_reg                                                       |
+| clk       | input  | 1     | Clock                                                                                                           |
+| reset\_n  | input  | 1     | Synchronous negative edge reset                                                                                 |
+| data\_in  | input  | 8     | Data input to pass to internal register                                                                         |
+| data\_out | output | 8     | Outputs data inside selected internal register. Data available on next cycle after read.                        |
+| addr      | input  | 1     | Specifies internal register:  0=control\_reg, 1= data\_reg                                                      |
 | valid     | input  | 1     | Read or write requests only proceed when valid=1. When valid=0, inputs on data\_in, addr and write are ignored. |
 | write     | input  | 1     | Select between read or write operation:  0=read, 1=write                                                        |
 
@@ -35,6 +34,7 @@ data_reg 0x1
 | Field |                data\_reg              |
 
 Bit fields:
+
 Ready – when asserted, indicates engine is ready to accept new data or start the next operation. If an operation had previously been started, indicates said operation is complete and result is ready.
 
 Load_n – when set, allows N (modulus) to be inserted/overwritten. 
