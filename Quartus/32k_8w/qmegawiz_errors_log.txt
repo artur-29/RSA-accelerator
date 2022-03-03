@@ -1,0 +1,26 @@
+
+
+/home/artur/Documents/RSA-accelerator/src/Quartus/1024k_32w/ip/pll.v
+
+Feb 19 09PM:56:47>: Megafunction PLL Intel FPGA IP v21.1 is not listed in any 
+wizard.lst file in the specified library path(s).Wizard launch aborted
+
+/home/artur/Documents/RSA-accelerator/src/Quartus/1024k_32w/ip/pll.v
+
+Feb 19 09PM:56:52>: Megafunction PLL Intel FPGA IP v21.1 is not listed in any 
+wizard.lst file in the specified library path(s).Wizard launch aborted
+
+/home/artur/Documents/RSA-accelerator/src/Quartus/1024k_32w/ip/pll.v
+
+Feb 19 09PM:57:15>: Megafunction PLL Intel FPGA IP v21.1 is not listed in any 
+wizard.lst file in the specified library path(s).Wizard launch aborted
+
+/home/artur/Documents/RSA-accelerator/src/Quartus/1024k_32w/ip/pll.v
+
+Feb 19 09PM:58:11>: Megafunction PLL Intel FPGA IP v21.1 is not listed in any 
+wizard.lst file in the specified library path(s).Wizard launch aborted
+
+/home/artur/Documents/RSA-accelerator/src/Quartus/1024k_32w/ip/pll.v
+
+Feb 26 03PM:29:11>: Megafunction PLL Intel FPGA IP v21.1 is not listed in any 
+wizard.lst file in the specified library path(s).Wizard launch aborted
