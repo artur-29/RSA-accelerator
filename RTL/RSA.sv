@@ -29,10 +29,6 @@ localparam OPERAND_WORDS = (DATA_WIDTH/WORD_SIZE); // words for each variable
 localparam MEMORY_WORDS = OPERAND_WORDS*8; // 8 variables
 localparam MEM_ADDR_WIDTH = $clog2(MEMORY_WORDS);
 
-//=======================================================
-//  FSM
-//=======================================================
-//
 
 typedef struct packed {
       bit [1:0]  nu_7_6;
