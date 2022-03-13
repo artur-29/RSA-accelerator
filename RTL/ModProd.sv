@@ -1,5 +1,4 @@
 
-//`define ENABLE_HPS
 import ModProd_pkg::*;
 module ModProd#(
       parameter   DEVICE_FAMILY     =     "Cyclone V",
@@ -40,14 +39,7 @@ module ModProd#(
 
 localparam ADD_STAGES = 6;
 localparam WORDS = DATA_WIDTH/WORD_SIZE;
-//=======================================================
-//  Structural coding
-//=======================================================
 
-//=======================================================
-//  FSM
-//=======================================================
-//
 ModProd_state this_state, next_state;
 //Inputs
 logic start;
