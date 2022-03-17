@@ -3,8 +3,6 @@ RSA crypto-engine targeting Intel FPGAs
 
 A low-resource, serial RSA engine for Intel FPGA Cyclone V. Mainly suitable for public key operations, implements RSAEP from PKCS #1. Private key operations also work when the key is defined as a pair. This is suboptimal, however, since this engine does not use CRT.
 
-Inspired by: https://ieeexplore.ieee.org/document/1253671 with a few improvements. Unlike the paper, there is no need to precompute the R^2modN whenever a new key is used. A slightly more optimal add/sub structure is also used, which does not require computing the full 2s complement representation of the second term. 
-
 Top level module of the engine is RSA.sv. This is instantiated inside RSA_tb.sv for verification and RSA_wrapper.sv for running on a Cyclone V. Communication is caried out via a register interface. Valid must be asserted for any request to occur. 
 
 RSA.sv signals
