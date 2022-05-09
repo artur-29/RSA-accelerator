@@ -1,6 +1,8 @@
 # RSA-accelerator
 RSA crypto-engine targeting Intel FPGAs
 
+Created as part of 3rd Year Project by Artur Folwarczny.
+
 A low-resource, serial RSA engine for Intel FPGA Cyclone V. Mainly suitable for public key operations, implements RSAEP from PKCS #1. Private key operations also work when the key is defined as a pair. This is suboptimal, however, since this engine does not use CRT.
 
 Top level module of the engine is RSA.sv. This is instantiated inside RSA_tb.sv for verification and RSA_wrapper.sv for running on a Cyclone V. Communication is caried out via a register interface. Valid must be asserted for any request to occur. 
